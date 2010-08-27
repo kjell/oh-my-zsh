@@ -1,1 +1,42 @@
-/Volumes/pétanque/Users/kjell/.zshrc
+# oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="kjell"
+plugins=(git rails textmate ruby osx brew)
+source $ZSH/oh-my-zsh.sh
+
+export PATH=~/bin:/usr/local/bin:~/Users/kjell/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+
+source ~/.rvm/scripts/rvm
+rvm use 1.8.7 &> /dev/null
+
+alias zconf="m ~/.zshrc"
+alias reload="source ~/.zshrc"
+
+bindkey "^[[3~" delete-char
+
+# oh-my-zsh overloads
+function m() { mate $1 }
+alias m.='mate . &'
+alias gst='git st'
+
+# Thanks http://superuser.com/questions/2127/what-zsh-features-do-you-use
+setopt auto_pushd # Always pushd when changing directory
+setopt PUSHD_TO_HOME # Have pushd with no arguments act like `pushd $HOME'.
+[[ -z "$terminfo[khome]" ]] || bindkey -M emacs "$terminfo[khome]" beginning-of-line # Make home and end keys work.
+[[ -z "$terminfo[kend]" ]] || bindkey -M emacs "$terminfo[kend]" end-of-line
+
+alias -g L='|less'
+alias -g DN='>/dev/null'
+alias -g G='|grep'
+
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    bg
+    zle redisplay
+  else
+    zle push-input
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+# /Thanks
