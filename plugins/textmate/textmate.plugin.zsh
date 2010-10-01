@@ -1,4 +1,3 @@
-
 # TextMate
 alias et='mate . &'
 alias ett='mate app config lib db public spec test Rakefile Capfile Todo &'
@@ -12,3 +11,6 @@ function tm() {
   cd $1
   mate $1
 }
+
+function m() { mate $1 }
+alias m.='mate . &'
