@@ -4,10 +4,13 @@ export ZSH_THEME="kjell"
 plugins=(git rails textmate ruby osx brew)
 source $ZSH/oh-my-zsh.sh
 
-export PATH=~/bin:/usr/local/bin:~/Users/kjell/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+export PATH=~/bin:/usr/local/bin:~/Users/kjell/.rvm/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:/usr/local/Cellar/node/0.2.0/lib/node/npm-0.1.27-10
+
+export EDITOR=mate
+export VISUAL="mate -w"
 
 source ~/.rvm/scripts/rvm
-rvm use 1.8.7 &> /dev/null
+rvm use --default 1.8.7-head &> /dev/null
 
 alias zconf="m ~/.zshrc"
 alias reload="source ~/.zshrc"
@@ -40,3 +43,12 @@ fancy-ctrl-z () {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 # /Thanks
+
+# http://blogs.techrepublic.com.com/opensource/?p=1347
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+alias ip="curl ifconfig.me"
+setopt extendedglob # http://linuxshellaccount.blogspot.com/2008/07/fancy-globbing-with-zsh-on-linux-and.html
+
+alias git-flow='nocorrect noglob git-flow'
