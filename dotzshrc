@@ -58,3 +58,6 @@ alias git-flow='nocorrect noglob git-flow'
 
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
+
+alias gpdd='g push && cap demo deploy'
+alias pru="rvm 1.9.2 exec pru"
