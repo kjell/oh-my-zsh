@@ -20,7 +20,7 @@ bindkey "^[[3~" delete-char
 
 # oh-my-zsh overloads
 m() { mvim "$@" }
-alias m.='mvim . &'
+alias m.='mvim .'
 alias gst='git st'
 alias vim='mvim -v'
 
@@ -59,4 +59,9 @@ alias pru="rvm 1.9.2 exec pru"
 # http://www.codeography.com/2011/05/01/quickly-navigate-your-projects-in-zsh-with-tab-completion.html
 s() {cd ~/Sites/$1;}
 compctl -W ~/Sites -/ s
+
+if pgrep -f dailies DN; then
+  else
+    ~/bin/dailies.rb start
+fi
 
