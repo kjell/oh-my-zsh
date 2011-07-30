@@ -22,7 +22,6 @@ bindkey "^[[3~" delete-char
 m() { mvim "$@" }
 alias m.='mvim .'
 alias gst='git st'
-alias vim='mvim -v'
 
 alias bop='bundle open'
 
