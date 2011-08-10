@@ -53,6 +53,7 @@ setopt extendedglob # http://linuxshellaccount.blogspot.com/2008/07/fancy-globbi
 alias git-flow='nocorrect noglob git-flow'
 
 alias gpdd='g push && cap demo deploy'
+alias gpddm='g push && cap demo deploy:migrations'
 alias pru="rvm 1.9.2 exec pru"
 
 # http://www.codeography.com/2011/05/01/quickly-navigate-your-projects-in-zsh-with-tab-completion.html

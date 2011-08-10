@@ -54,6 +54,7 @@ alias ggpnp='git pull origin $(current_branch) && git push origin $(current_bran
 alias gst='git st'
 alias ga.='git add .'
 alias gap='git add -p'
+alias gcm='git commit -m'
 
 compdef ggpush=git
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
