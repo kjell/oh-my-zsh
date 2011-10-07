@@ -58,7 +58,16 @@ alias ggpnp='git pull origin $(current_branch) && git push origin $(current_bran
 alias gst='git st'
 alias ga.='git add .'
 alias gap='git add -p'
-alias gcm='git commit -m'
+# This command does a git commit with the given quoted message.
+# If message ($@) is < 50 chars long it enters it, otherwise
+# it does an interactive commit message with the >50 chars
+gcm() {
+  if test $(echo "$@" | wc -c) -gt 51; then
+    echo "$@" | g commit -F - -e
+  else
+    git commit -m "$@"
+  fi
+}
 
 compdef ggpush=git
 alias ggpnp='git pull origin $(current_branch) && git push origin $(current_branch)'
